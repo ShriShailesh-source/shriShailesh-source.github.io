@@ -1,0 +1,306 @@
+/* --- Global Styles & Navigation (Flexbox for Menu) --- */
+:root {
+    --primary-color: #ff5733; /* A vibrant orange */
+    --secondary-color: #333;
+    --background-color: #f4f4f9;
+    --card-bg: white;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    background-color: var(--background-color);
+    color: var(--secondary-color);
+}
+
+.container {
+    width: 90%;
+    margin: auto;
+    overflow: hidden;
+}
+
+header {
+    background: var(--secondary-color);
+    color: white;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    border-bottom: var(--primary-color) 3px solid;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+nav .container {
+    display: flex; /* Flexbox for alignment */
+    justify-content: space-between;
+    align-items: center;
+	color:white;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+}
+
+nav ul {
+    list-style: none;
+    display: flex; /* Flexbox for menu items */
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+    display: block;
+    transition: color 0.3s, background-color 0.3s;
+}
+
+nav ul li a:hover {
+    background-color: var(--primary-color);
+    color: white;
+    /* Hover effect required */
+    transform: translateY(-2px); /* Transform effect on hover */
+}
+
+
+/* --- Home Page Specific Styles --- */
+.hero {
+    background: url('picsum.photos') no-repeat center center/cover;
+    height: 60vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    position: relative;
+    /* Gradient overlay for readability */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), url('picsum.photos');
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+    /* Animation for the title */
+    animation: fadeInDown 1s ease-out; 
+}
+
+.hero p {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    animation: fadeInUp 1s ease-out;
+}
+
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.register-btn {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 15px 30px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    display: inline-block;
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Transition effect */
+    border: none;
+}
+
+.register-btn:hover {
+    background-color: #e64a19;
+    transform: scale(1.05); /* Transform effect on hover */
+    box-shadow: 0 4px 15px rgba(255, 87, 51, 0.4); /* Shadow effect on hover */
+}
+
+
+/* --- General Section Styling --- */
+section {
+    padding: 60px 0;
+}
+
+h2 {
+    color: var(--primary-color);
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* --- Footer --- */
+footer {
+    background: var(--secondary-color);
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 20px;
+}
+
+
+/* --- Media Queries for Responsiveness --- */
+@media (max-width: 768px) {
+    nav .container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    nav ul {
+        margin-top: 15px;
+        width: 100%;
+        flex-direction: column;
+    }
+
+    nav ul li a {
+        padding: 10px;
+        text-align: center;
+    }
+}
+
+
+/* --- Specific Page Styles Placeholders (Details added below) --- */
+
+/* About Page (CSS Grid & Box Shadow) */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    text-align: center;
+}
+
+.stat-card {
+    background: var(--card-bg);
+    padding: 30px;
+    border-radius: 8px;
+    /* Box shadow effect */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    transition: transform 0.3s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+}
+
+.stat-card h3 {
+    color: var(--primary-color);
+    font-size: 2.5rem;
+}
+
+/* Events Page (Transitions & Transforms) */
+.event-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 20px;
+}
+
+.event-card {
+    background: var(--card-bg);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    flex: 1 1 300px;
+    text-align: center;
+    /* Transition and Transform effects */
+    transition: transform 0.4s ease, box-shadow 0.4s ease; 
+}
+
+.event-card:hover {
+    transform: scale(1.03) rotate(-1deg); 
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Gallery Page (CSS Grid, Zoom, Shadow) */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+    border-radius: 8px;
+    /* Transition, Transform (Zoom) and Shadow effects */
+    transition: transform 0.4s ease, box-shadow 0.4s ease; 
+    cursor: pointer;
+}
+
+.gallery-item img:hover {
+    transform: scale(1.05); /* Zoom effect */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); /* Shadow effect */
+}
+
+/* Contact Page (Focus effects and Animation) */
+.contact-form {
+    max-width: 600px;
+    margin: auto;
+    background: var(--card-bg);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-group input, 
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    /* Focus Effect */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease; 
+}
+
+.form-group input:focus, 
+.form-group textarea:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 5px rgba(255, 87, 51, 0.5);
+    outline: none;
+}
+
+.submit-btn {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    width: 100%;
+    /* Animated submit button */
+    animation: pulse 2s infinite; 
+}
+
+.submit-btn:hover {
+    animation: none; /* Stop animation on hover for better UX */
+    background-color: #e64a19;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+    100% { transform: scale(1); }
+}
+
